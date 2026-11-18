@@ -1,0 +1,408 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>بوابة السجل · تمرين | Registry portal · exercise</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;500;600;700&family=Noto+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --green:#0b5a46; --green-dk:#073f31; --green-lt:#e7f1ed; --gold:#a9864a;
+  --ink:#1c2a26; --muted:#5f6f6a; --line:#d9e1de; --bg:#f3f5f4; --card:#ffffff;
+  --warn-bg:#fff4d6; --warn-ink:#6b4e00; --red:#9b2c2c; --red-bg:#fbeaea;
+  color-scheme: light;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font-family:"Noto Sans Arabic","Noto Sans","Segoe UI",Tahoma,sans-serif;font-size:16px;line-height:1.55}
+.en{font-family:"Noto Sans","Segoe UI",Arial,sans-serif;direction:ltr;unicode-bidi:isolate;text-align:right}
+.wrap{max-width:880px;margin:0 auto;padding:0 16px}
+/* exercise strip */
+.strip{background:var(--warn-bg);color:var(--warn-ink);font-size:13px;text-align:center;padding:6px 12px;border-bottom:1px solid #edd9a0}
+.strip b{font-weight:700}
+/* header */
+header{background:var(--card);border-bottom:4px solid var(--green)}
+.hd{display:flex;align-items:center;gap:14px;padding:14px 0}
+.seal{flex:0 0 auto;width:52px;height:52px}
+.hd h1{margin:0;font-size:19px;line-height:1.3;color:var(--green-dk);font-weight:700}
+.hd .sub{font-size:13px;color:var(--muted)}
+nav{background:var(--green);color:#fff}
+nav .wrap{display:flex;gap:18px;font-size:14px;padding-top:9px;padding-bottom:9px;overflow:hidden;white-space:nowrap}
+nav span{opacity:.85}
+nav span.on{opacity:1;font-weight:600;border-bottom:2px solid var(--gold);padding-bottom:2px}
+.crumb{font-size:13px;color:var(--muted);padding:14px 0 6px}
+/* cards */
+.card{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:18px;margin:0 0 16px}
+.card h2{margin:0 0 4px;font-size:18px;color:var(--green-dk)}
+.card h2 + .en{font-size:13px;color:var(--muted);display:block;margin-bottom:14px}
+.tabs{display:flex;gap:0;border:1px solid var(--line);border-radius:6px;overflow:hidden;margin-bottom:12px}
+.tabs button{flex:1;background:#f8faf9;border:0;padding:9px 6px;font:inherit;font-size:14px;color:var(--muted);cursor:pointer;line-height:1.3}
+.tabs button + button{border-inline-start:1px solid var(--line)}
+.tabs button.on{background:var(--green-lt);color:var(--green-dk);font-weight:600;box-shadow:inset 0 -3px 0 var(--green)}
+.tabs .en{display:block;font-size:11.5px;font-weight:400;text-align:center}
+.btn .en{text-align:center}
+.row{display:flex;gap:8px}
+input[type=search]{flex:1;min-width:0;font:inherit;font-size:16px;padding:11px 12px;border:1px solid #b9c6c1;border-radius:6px;background:#fff;color:var(--ink)}
+input[type=search]:focus{outline:2px solid var(--green);outline-offset:1px;border-color:var(--green)}
+.btn{background:var(--green);color:#fff;border:0;border-radius:6px;padding:0 18px;font:inherit;font-weight:600;cursor:pointer;line-height:1.2}
+.btn:hover{background:var(--green-dk)}
+.btn .en{display:block;font-size:11.5px;font-weight:400;opacity:.9}
+.hint{font-size:13px;color:var(--muted);margin-top:10px}
+.hint .en{display:block}
+/* results */
+#out:empty{display:none}
+.loading{display:flex;align-items:center;gap:10px;color:var(--muted);font-size:14px}
+.spin{width:18px;height:18px;border:3px solid var(--green-lt);border-top-color:var(--green);border-radius:50%;animation:s .8s linear infinite}
+@keyframes s{to{transform:rotate(360deg)}}
+.list a{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px;border:1px solid var(--line);border-radius:6px;margin-top:8px;color:var(--ink);text-decoration:none;background:#fff}
+.list a:hover{border-color:var(--green);background:var(--green-lt)}
+.list .nm{font-weight:600}
+.list .en{display:block;font-size:13px;color:var(--muted);font-weight:400}
+.badge{display:inline-block;font-size:12px;padding:2px 8px;border-radius:20px;background:var(--green-lt);color:var(--green-dk);white-space:nowrap}
+.badge.grey{background:#eef0ef;color:var(--muted)}
+/* extract document */
+.doc{position:relative;overflow:hidden;background:#fff;border:1px solid var(--line);border-top:5px solid var(--green);border-radius:6px;padding:18px 18px 14px}
+.doc::after{content:"تمرين · EXERCISE";position:absolute;inset:auto;top:42%;left:50%;transform:translate(-50%,-50%) rotate(-24deg);font-size:54px;font-weight:700;color:rgba(11,90,70,.055);white-space:nowrap;pointer-events:none}
+.dochd{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;border-bottom:1px solid var(--line);padding-bottom:10px;margin-bottom:6px}
+.dochd h3{margin:0;font-size:17px;color:var(--green-dk)}
+.dochd .en{font-size:12.5px;color:var(--muted);display:block;letter-spacing:.04em}
+.ref{font-size:12px;color:var(--muted);text-align:left;direction:ltr;white-space:nowrap}
+.ref b{color:var(--ink);font-weight:600}
+table.kv{width:100%;border-collapse:collapse;font-size:15px}
+table.kv th,table.kv td{text-align:start;vertical-align:top;padding:9px 6px;border-bottom:1px solid #edf1ef}
+table.kv th{width:34%;font-weight:600;color:var(--green-dk)}
+table.kv th .en,table.kv td .en{display:block;font-size:12.5px;color:var(--muted);font-weight:400}
+table.kv td .en{color:#3d4b47}
+.sect{margin:16px 0 4px;font-size:14px;font-weight:700;color:var(--green-dk);display:flex;align-items:center;gap:8px}
+.sect .en{font-weight:500;color:var(--muted);font-size:12.5px}
+.sect::before{content:"";width:4px;height:16px;background:var(--gold);border-radius:2px}
+.upd{background:#fff8e8;border:1px solid #ecd9a6;border-radius:6px;padding:8px 10px;margin:8px 0 2px;font-size:13.5px}
+.upd .en{display:block;color:#5d4a17}
+.stamp{display:flex;align-items:center;gap:10px;margin-top:14px;padding-top:10px;border-top:1px dashed var(--line);font-size:12.5px;color:var(--muted)}
+.stamp svg{flex:0 0 auto}
+.stamp .en{display:block}
+.nores{border-top-color:var(--muted)}
+.nores .big{font-size:17px;font-weight:700;margin:4px 0}
+.back{display:inline-block;margin-top:12px;font-size:14px;color:var(--green);cursor:pointer;background:none;border:0;font:inherit;padding:0}
+.note{font-size:13px;color:var(--muted)}
+footer{font-size:12.5px;color:var(--muted);text-align:center;padding:18px 16px 30px;border-top:1px solid var(--line);margin-top:24px}
+footer .en{display:block}
+@media (max-width:560px){
+  .hd h1{font-size:16.5px}
+  .seal{width:44px;height:44px}
+  nav span:nth-child(n+3){display:none}
+  table.kv th{width:38%}
+  table.kv,table.kv tr,table.kv th,table.kv td{font-size:14.5px}
+  .doc::after{font-size:38px}
+  .dochd{flex-direction:column}
+  .ref{text-align:right}
+}
+</style>
+</head>
+<body>
+<div class="strip"><b>بيئة تدريب – جميع البيانات افتراضية</b> · <span class="en">Training environment – all data fictional · Operation Second Look</span></div>
+<header>
+  <div class="wrap hd">
+    <svg class="seal" viewBox="0 0 64 64" aria-hidden="true">
+      <circle cx="32" cy="32" r="30" fill="#fff" stroke="#0b5a46" stroke-width="2.5"/>
+      <circle cx="32" cy="32" r="24.5" fill="none" stroke="#a9864a" stroke-width="1.2" stroke-dasharray="2 2.2"/>
+      <path d="M17 26 L32 17 L47 26 Z" fill="#0b5a46"/>
+      <rect x="18" y="27.5" width="28" height="2.4" fill="#0b5a46"/>
+      <rect x="20" y="31.5" width="3.4" height="11" fill="#0b5a46"/><rect x="27" y="31.5" width="3.4" height="11" fill="#0b5a46"/>
+      <rect x="33.6" y="31.5" width="3.4" height="11" fill="#0b5a46"/><rect x="40.6" y="31.5" width="3.4" height="11" fill="#0b5a46"/>
+      <rect x="17" y="44" width="30" height="3" fill="#0b5a46"/>
+    </svg>
+    <div>
+      <h1>بوابة السجل التجاري والمستفيد الحقيقي</h1>
+      <div class="sub en">Commercial Register &amp; Beneficial Ownership Portal · exercise</div>
+    </div>
+  </div>
+  <nav><div class="wrap"><span>الرئيسية</span><span class="on">الاستعلام عن منشأة</span><span>المستفيد الحقيقي</span><span>الخدمات</span></div></nav>
+</header>
+
+<main class="wrap">
+  <div class="crumb">الرئيسية ‹ الاستعلام عن منشأة · <span class="en">Home › Company search</span></div>
+
+  <section class="card" id="searchCard">
+    <h2>الاستعلام عن منشأة مسجّلة</h2>
+    <span class="en">Search a registered company</span>
+    <div class="tabs" role="tablist">
+      <button type="button" class="on" data-mode="name" role="tab">الاسم التجاري<span class="en">Trade name</span></button>
+      <button type="button" data-mode="num" role="tab">الرقم الموحد<span class="en">Unified number</span></button>
+    </div>
+    <form id="f" class="row" autocomplete="off">
+      <input id="q" type="search" placeholder="مثال: اسم الشركة · e.g. company name" aria-label="Search">
+      <button class="btn" type="submit">بحث<span class="en">Search</span></button>
+    </form>
+    <div class="hint">يشمل البحث المنشآت المسجّلة في المملكة فقط – لا الأفراد ولا أرقام الهواتف ولا الحسابات.
+      <span class="en">Companies registered in the Kingdom only – not persons, phone numbers or accounts.</span></div>
+  </section>
+
+  <section id="out" aria-live="polite"></section>
+</main>
+
+<footer>
+  بوابة تدريبية لتمرين «نظرة ثانية» – جميع الأسماء والأرقام افتراضية، ولا تمثّل أي جهة حكومية أو خدمة حقيقية.
+  <span class="en">Training portal for the Operation Second Look exercise – all names and numbers are fictional; not a government service.</span>
+</footer>
+
+<script>
+(function(){
+"use strict";
+/* ---------- Stage 3 gate (Northline beneficial-owner update) ---------- */
+var STATE = {s3:false, s3_from:"2026-11-19T10:10:00+03:00"};
+var forceS3 = /[?&]s3=1\b/.test(location.search);
+function loadState(){
+  try{
+    return fetch("state.json?t="+Date.now(), {cache:"no-store"})
+      .then(function(r){ return r.ok ? r.json() : null; })
+      .then(function(j){ if(j){ STATE = j; } })
+      .catch(function(){});
+  }catch(e){ return Promise.resolve(); }
+}
+function stage3(){
+  if(forceS3 || STATE.s3) return true;
+  var t = Date.parse(STATE.s3_from || "");
+  return !isNaN(t) && Date.now() >= t;
+}
+
+/* ---------- normalisation ---------- */
+function norm(s){
+  s = String(s||"").toLowerCase();
+  s = s.replace(/[٠-٩]/g, function(d){ return String(d.charCodeAt(0)-0x660); })
+       .replace(/[۰-۹]/g, function(d){ return String(d.charCodeAt(0)-0x6F0); });
+  s = s.replace(/[ً-ٰٟـ]/g, "")      // tashkeel, tatweel
+       .replace(/[آأإٱ]/g, "ا") // alef forms
+       .replace(/ة/g, "ه")                      // taa marbuta
+       .replace(/ى/g, "ي")                      // alef maqsura
+       .replace(/[ڤ]/g, "ف").replace(/[گ]/g, "ك");
+  return s.replace(/[^0-9a-zء-ي]/g, "");
+}
+function digits(s){ return norm(s).replace(/[^0-9]/g, ""); }
+
+/* ---------- data ---------- */
+var REG = [
+ { id:"northline", kind:"cr", num:"7000441826",
+   ar:"شركة نورث لاين للتجارة", en:"Northline Trading Co.",
+   alias:["northline","northlinetrading","نورثلاين","نورتلاين","نورثلين"],
+   ref:"EX-4418-26" },
+ { id:"gadget", kind:"cr", num:"7000395261",
+   ar:"جادجت هب للإلكترونيات", en:"Gadget Hub Electronics",
+   alias:["gadgethub","gadget","جادجتهب","غادجتهب","قادجتهب","جادجت","غادجت","جاجتهب"],
+   ref:"EX-3952-61" },
+ { id:"alvora", kind:"inst", ar:"ألفورا للتأمين التعاوني", en:"Alvora Cooperative Insurance",
+   alias:["alvora","الفورا","الفوره"] },
+ { id:"hib", kind:"inst", ar:"شركة هورايزن لوساطة التأمين", en:"Horizon Insurance Brokers",
+   alias:["horizoninsurancebrokers","horizoninsurance","horizonbrokers","هورايزنلوساطهالتامين","هورايزنللتامين","هورايزنلوساطه"] },
+ { id:"hfg", kind:"inst", ar:"مجموعة هورايزن المالية", en:"Horizon Financial Group",
+   alias:["horizonfinancialgroup","horizonfinancial","horizongroup","مجموعههورايزن","هورايزنالماليه"] },
+ { id:"ghb", kind:"inst", ar:"بنك أفق الخليج", en:"Gulf Horizon Bank",
+   alias:["gulfhorizonbank","gulfhorizon","افقالخليج","بنكافق"] },
+ { id:"swift", kind:"inst", ar:"شركة سويفت واليت", en:"SwiftWallet",
+   alias:["swiftwallet","swift","سويفتواليت","سويفت"] },
+ { id:"clear", kind:"inst", ar:"شركة كليربوينت للدفع الآجل", en:"Clearpoint Pay Later",
+   alias:["clearpointpaylater","clearpoint","كليربوينت","كليربوينتللدفعالاجل"] },
+ { id:"payline", kind:"inst", ar:"شركة باي لاين لخدمات التجار", en:"Payline Merchant Services",
+   alias:["paylinemerchantservices","payline","بايلاين","بايلاينلخدماتالتجار"] }
+];
+/* horizon alone → the three Horizon names */
+var HORIZON = ["horizon","هورايزن","هوريزن"];
+
+/* foreign (not registered) – the query must CONTAIN one of these keys */
+var FOREIGN = [
+ { ar:"أوريون جلوبال القابضة المحدودة", en:"Orion Global Holdings Ltd", keys:["orion","اوريون","اريون","اوريان"] },
+ { ar:"أردانيا لخدمات الشحن", en:"Ardania Freight Services", keys:["ardaniafreight","freightservices","لخدماتالشحن"] },
+ { ar:"أردانيا للمعاينة البحرية وتسوية الخسائر", en:"Ardania Marine Survey & Loss Adjusters", keys:["marinesurvey","lossadjust","ardaniasurvey","ardaniamarine","للمعاينه","المعاينهالبحريه","تسويهالخسائر"] },
+ { ar:"هالسيون نوميني (المنطقة الحرة في أردانيا) المحدودة", en:"Halcyon Nominees (AFZ) Ltd", keys:["halcyonnominee","nominee","هالسيوننومين","نوميني"] },
+ { ar:"هالسيون للخدمات المؤسسية (المنطقة الحرة في أردانيا) المحدودة", en:"Halcyon Corporate Services (AFZ) Ltd", keys:["halcyoncorporate","corporateservices","هالسيونللخدمات","الخدماتالمؤسسيه"] }
+];
+var FOREIGN_GENERIC = ["ardania","اردانيا","halcyon","هالسيون","afz"];
+
+/* ---------- search ---------- */
+var mode = "name";
+function search(raw){
+  var q = norm(raw), d = digits(raw);
+  if(mode === "num" || (d.length >= 6 && d.length === q.length)){
+    if(d.length === 0) return {type:"none", q:raw};
+    for(var i=0;i<REG.length;i++){ if(REG[i].num && REG[i].num === d) return {type:"one", rec:REG[i]}; }
+    if(d.length >= 9 && d.length !== 10 || /^(966|05|5\d{8}$)/.test(d) || /^sa/.test(q)) return {type:"notco", q:raw};
+    return {type:"none", q:raw};
+  }
+  if(/^sa\d{6,}/.test(q) || /^\+?\d[\d\s\-]{6,}$/.test(String(raw).trim())) return {type:"notco", q:raw};
+  if(q.length < 3) return {type:"short"};
+  // foreign entities first (specific)
+  for(var f=0; f<FOREIGN.length; f++){
+    for(var k=0;k<FOREIGN[f].keys.length;k++){ if(q.indexOf(FOREIGN[f].keys[k]) >= 0) return {type:"foreign", rec:FOREIGN[f]}; }
+  }
+  var hits = [];
+  REG.forEach(function(r){
+    for(var a=0;a<r.alias.length;a++){
+      var al = r.alias[a];
+      if(q.indexOf(al) >= 0 || (q.length >= 4 && al.indexOf(q) >= 0)){ hits.push(r); break; }
+    }
+  });
+  if(hits.length === 0){
+    for(var h=0;h<HORIZON.length;h++){
+      if(q.indexOf(HORIZON[h]) >= 0){ hits = REG.filter(function(r){ return r.id==="hib"||r.id==="hfg"||r.id==="ghb"; }); break; }
+    }
+  }
+  if(hits.length === 0 && q !== "ardania" && q !== "اردانيا"){
+    for(var g=0; g<FOREIGN_GENERIC.length; g++){ if(q.indexOf(FOREIGN_GENERIC[g]) >= 0) return {type:"foreign", rec:{ar:"", en:"", asked:raw}}; }
+    return {type:"none", q:raw};
+  }
+  if(hits.length === 1) return {type:"one", rec:hits[0]};
+  return {type:"many", list:hits};
+}
+
+/* ---------- rendering ---------- */
+function esc(s){ return String(s).replace(/[&<>"']/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]; }); }
+function kv(arL, enL, arV, enV){
+  return '<tr><th>'+arL+'<span class="en">'+enL+'</span></th><td>'+arV+(enV?'<span class="en">'+enV+'</span>':'')+'</td></tr>';
+}
+function sect(ar, en){ return '<div class="sect">'+ar+' <span class="en">'+en+'</span></div>'; }
+var STAMP = '<svg width="34" height="34" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="18" fill="none" stroke="#a9864a" stroke-width="1.6"/><circle cx="20" cy="20" r="13" fill="none" stroke="#a9864a" stroke-width=".8"/><path d="M13 20.5l4.5 4.5L27 15" fill="none" stroke="#0b5a46" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+function footStamp(){
+  return '<div class="stamp">'+STAMP+'<div>بيانات السجل فقط. المستفيد الحقيقي إقرار من الشركة، ويتاح للجهات الملزمة؛ يُبلَّغ عن أي اختلاف إلى وزارة التجارة.'+
+    '<span class="en">Registry data only. The beneficial owner is the company\'s own declaration, available to obliged entities; report any discrepancy to the Ministry of Commerce.</span></div></div>';
+}
+function docHead(ar, en, ref){
+  return '<div class="dochd"><div><h3>'+ar+'</h3><span class="en">'+en+'</span></div>'+
+    (ref?'<div class="ref">Extract no. <b>'+ref+'</b></div>':'')+'</div>';
+}
+function back(){ return '<button class="back" type="button" data-back="1">→ بحث جديد · <span class="en">New search</span></button>'; }
+
+function renderCR(r){
+  var s3 = stage3(), h = '<div class="doc">';
+  if(r.id === "northline"){
+    h += docHead("السجل التجاري – مستخرج","COMMERCIAL REGISTER – EXTRACT", r.ref + (s3 ? "-B" : ""));
+    h += '<table class="kv">'+
+      kv("الاسم التجاري","Trade name","شركة نورث لاين للتجارة","Northline Trading Co.")+
+      kv("الرقم الموحد","Unified number",'<span class="en" style="display:inline;color:inherit;font-size:inherit">7000 4418 26</span>',"")+
+      kv("حالة السجل","Status",'<span class="badge">قائم · Active</span>',"")+
+      kv("تاريخ الإصدار","Issued","27 سبتمبر 2026","27 Sep 2026")+
+      kv("الشكل النظامي","Legal form","شركة ذات مسؤولية محدودة – شخص واحد","Limited liability company – single shareholder")+
+      kv("النشاط","Activity","التجارة العامة؛ استيراد الأجهزة الإلكترونية وإعادة تصديرها","General trading; import and re-export of electronics")+
+      kv("العنوان المسجَّل","Registered address","مكتب مشترك في مركز أعمال، الرياض","Shared office in a business centre, Riyadh")+
+      kv("المدير","Manager / director","راكان س. (23 عاماً)","Rakan S. (aged 23)")+
+      kv("الشركاء","Shareholders","أوريون جلوبال القابضة المحدودة – المنطقة الحرة في أردانيا – 100%","Orion Global Holdings Ltd – Ardania Free Zone – 100%")+
+      '</table>';
+    h += sect("المستفيد الحقيقي (إقرار الشركة)","Beneficial owner (company declaration)");
+    if(!s3){
+      h += '<table class="kv">'+
+        kv("المستفيد الحقيقي المُصرَّح به","Declared beneficial owner","راكان س.","Rakan S.")+
+        kv("تاريخ الإقرار","Declared on","27 سبتمبر 2026","27 Sep 2026")+'</table>';
+    } else {
+      h += '<div class="upd">⚠ تحديث في بيانات المستفيد الحقيقي – السجل كما في 17 نوفمبر 2026<span class="en">Beneficial-owner update – record as of 17 Nov 2026</span></div>';
+      h += '<table class="kv">'+
+        kv("المستفيد الحقيقي حالياً","Declared BO now","ليو فارغا – جنسية أجنبية","Leo Varga – foreign national")+
+        kv("صفته كما وردت في الإقرار","Basis given in the declaration","«مدير الشريك الوحيد: أوريون جلوبال القابضة المحدودة»","“Director of the sole shareholder, Orion Global Holdings Ltd”")+
+        kv("تاريخ التغيير","Changed on","15 نوفمبر 2026","15 Nov 2026")+
+        kv("المستفيد الحقيقي سابقاً","Previous declared BO","راكان س. (إقرار 27 سبتمبر 2026)","Rakan S. (declared 27 Sep 2026)")+
+        kv("السجل التجاري","Commercial register","دون تغيير: المدير راكان س.؛ الشريك أوريون جلوبال القابضة المحدودة 100%","Unchanged: manager Rakan S.; shareholder Orion Global Holdings Ltd 100%")+
+        '</table>';
+    }
+  } else { // gadget hub
+    h += docHead("السجل التجاري – مستخرج","COMMERCIAL REGISTER – EXTRACT", r.ref);
+    h += '<table class="kv">'+
+      kv("الاسم التجاري","Trade name","جادجت هب للإلكترونيات","Gadget Hub Electronics")+
+      kv("الرقم الموحد","Unified number",'<span class="en" style="display:inline;color:inherit;font-size:inherit">7000 3952 61</span>',"")+
+      kv("حالة السجل","Status",'<span class="badge">قائم · Active</span>',"")+
+      kv("تاريخ الإصدار","Issued","4 أغسطس 2026","4 Aug 2026")+
+      kv("الشكل النظامي","Legal form","شركة ذات مسؤولية محدودة","Limited liability company")+
+      kv("النشاط","Activity","البيع بالتجزئة للأجهزة الإلكترونية وملحقاتها – متجر إلكتروني ومحل واحد","Retail sale of electronics and accessories – online store and one shop")+
+      kv("العنوان المسجَّل","Registered address","محل تجاري، الرياض","Shop unit, Riyadh")+
+      kv("المدير","Manager / director","هاني د.","Hani D.")+
+      kv("الشركاء","Shareholders","هاني د. – 60%<br>أوريون جلوبال القابضة المحدودة – المنطقة الحرة في أردانيا – 40%","Hani D. – 60% · Orion Global Holdings Ltd – Ardania Free Zone – 40%")+
+      '</table>';
+    h += sect("المستفيد الحقيقي (إقرار الشركة)","Beneficial owner (company declaration)");
+    h += '<table class="kv">'+
+      kv("المستفيد الحقيقي المُصرَّح به","Declared beneficial owner","هاني د. فقط","Hani D. only")+
+      kv("تاريخ الإقرار","Declared on","4 أغسطس 2026","4 Aug 2026")+'</table>';
+  }
+  return h + footStamp() + '</div>' + back();
+}
+function renderInst(r){
+  return '<div class="doc">'+docHead("نتيجة الاستعلام","REGISTRY RESULT","")+
+    '<table class="kv">'+
+    kv("الاسم التجاري","Trade name",esc(r.ar),esc(r.en))+
+    kv("حالة السجل","Status",'<span class="badge">مسجّلة · قائمة · Registered · active</span>',"")+
+    kv("ملاحظة","Note","منشأة مالية مرخّصة. لا يوجد في السجل ما يتصل بموضوع استعلامكم.","Licensed financial institution. Nothing in the record relevant to your query.")+
+    '</table>'+footStamp()+'</div>'+back();
+}
+function renderForeign(r){
+  var nameAr = r.ar || esc(r.asked), nameEn = r.en || "";
+  return '<div class="doc">'+docHead("نتيجة الاستعلام","REGISTRY RESULT","")+
+    '<table class="kv">'+
+    kv("الاسم المطلوب","Name requested",nameAr,nameEn)+
+    kv("السجل التجاري","Commercial register","غير مسجَّلة في المملكة – كيان أجنبي.","Not registered in the Kingdom – foreign entity.")+
+    kv("الملاك والمديرون","Owners and directors","لا توجد لدى السجل بيانات عن ملاكها أو مديريها.","The registry holds no data on its owners or directors.")+
+    kv("المستفيد الحقيقي","Beneficial owner","لا يوجد سجل.","No record.")+
+    '</table><div class="stamp">'+STAMP+'<div>يعرض السجل البيانات المسجَّلة في المملكة فقط.<span class="en">The registry shows only data registered in the Kingdom.</span></div></div></div>'+back();
+}
+function renderNone(raw){
+  return '<div class="doc nores">'+docHead("نتيجة الاستعلام","REGISTRY RESULT","")+
+    '<table class="kv">'+kv("الاسم المطلوب","Name requested",esc(raw),"")+'</table>'+
+    '<p class="big">لا يوجد سجل.</p><p>لا يوجد سجل بهذا الاسم في السجل التجاري ولا في سجل المستفيد الحقيقي. تحقّقوا من التهجئة أو الرقم الموحد.'+
+    '<span class="en" style="display:block;color:var(--muted);font-size:13.5px">No record found. Nothing under this name in the commercial register or the beneficial-owner register. Check the spelling or the unified number.</span></p>'+
+    footStamp()+'</div>'+back();
+}
+function renderNotCo(raw){
+  return '<div class="doc nores">'+docHead("نتيجة الاستعلام","REGISTRY RESULT","")+
+    '<table class="kv">'+kv("المطلوب","Requested",esc(raw),"")+'</table>'+
+    '<p class="big">لا يوجد سجل.</p><p>يقيّد السجل المنشآت فقط، ولا يحتفظ بأرقام الهواتف ولا بأرقام الحسابات.'+
+    '<span class="en" style="display:block;color:var(--muted);font-size:13.5px">No record. The registry holds companies only – not phone numbers or account numbers.</span></p></div>'+back();
+}
+function renderList(list){
+  var h = '<div class="card"><h2>نتائج البحث ('+list.length+')</h2><span class="en">Search results ('+list.length+')</span><div class="list">';
+  list.forEach(function(r){
+    h += '<a href="#" data-id="'+r.id+'"><span><span class="nm">'+esc(r.ar)+'</span><span class="en">'+esc(r.en)+'</span></span><span class="badge">قائمة · Active</span></a>';
+  });
+  return h + '</div></div>';
+}
+function show(res){
+  var out = document.getElementById("out");
+  if(res.type === "short"){ out.innerHTML = '<div class="card note">اكتبوا ثلاثة أحرف على الأقل. · <span class="en">Type at least three characters.</span></div>'; return; }
+  if(res.type === "one") out.innerHTML = res.rec.kind === "cr" ? renderCR(res.rec) : renderInst(res.rec);
+  else if(res.type === "many") out.innerHTML = renderList(res.list);
+  else if(res.type === "foreign") out.innerHTML = renderForeign(res.rec);
+  else if(res.type === "notco") out.innerHTML = renderNotCo(res.q);
+  else out.innerHTML = renderNone(res.q);
+  out.scrollIntoView({behavior:"smooth", block:"start"});
+}
+function run(){
+  var raw = document.getElementById("q").value.trim();
+  if(!raw) return;
+  var out = document.getElementById("out");
+  out.innerHTML = '<div class="card loading"><span class="spin"></span> جارٍ البحث في السجل… · <span class="en">Searching the register…</span></div>';
+  loadState().then(function(){ setTimeout(function(){ show(search(raw)); }, 650); });
+}
+
+document.getElementById("f").addEventListener("submit", function(e){ e.preventDefault(); run(); });
+document.querySelectorAll(".tabs button").forEach(function(b){
+  b.addEventListener("click", function(){
+    document.querySelectorAll(".tabs button").forEach(function(x){ x.classList.remove("on"); });
+    b.classList.add("on"); mode = b.getAttribute("data-mode");
+    var q = document.getElementById("q");
+    q.placeholder = mode === "num" ? "مثال: 7000 0000 00 · e.g. 7000 0000 00" : "مثال: اسم الشركة · e.g. company name";
+    q.setAttribute("inputmode", mode === "num" ? "numeric" : "text");
+    q.focus();
+  });
+});
+document.getElementById("out").addEventListener("click", function(e){
+  var a = e.target.closest("a[data-id]");
+  if(a){ e.preventDefault(); var r = REG.filter(function(x){ return x.id === a.getAttribute("data-id"); })[0];
+    if(r) show({type:"one", rec:r}); return; }
+  if(e.target.closest("[data-back]")){
+    document.getElementById("out").innerHTML = "";
+    var q = document.getElementById("q"); q.value = ""; q.focus();
+    window.scrollTo({top:0, behavior:"smooth"});
+  }
+});
+loadState();
+})();
+</script>
+</body>
+</html>
